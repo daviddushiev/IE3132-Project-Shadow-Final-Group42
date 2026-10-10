@@ -1,0 +1,14 @@
+PROJECT SHADOW - INTEGRATION HEALTH CHECK
+-----------------------------------------
+[PASS] T01 - rCTF platform is accessible
+[PASS] T02 - PS-01 website is accessible
+[PASS] T03 - Research archive is accessible
+[PASS] T04 - PS-02 research portal is accessible
+[PASS] T05 - DNS resolves archive.solace.test
+[PASS] T06 - PS-07 SSH port 2227 is reachable
+
+========== TEST SUMMARY ==========
+Total Tests : 6
+Passed      : 6
+Failed      : 0
+Overall     : ALL TESTS PASSED
