@@ -1,0 +1,13 @@
+[Unit]
+Description=Project Shadow PS-07 Network Isolation
+Requires=docker.service
+After=docker.service network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/sbin/ps07-firewall.sh
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target
