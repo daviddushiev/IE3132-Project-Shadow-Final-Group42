@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>PS-05 - Tracing the Signal</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #111827;
+            color: #e5e7eb;
+            margin: 0;
+        }
+
+        .container {
+            max-width: 850px;
+            margin: 50px auto;
+            background: #1f2937;
+            padding: 35px;
+            border-radius: 10px;
+        }
+
+        h1 {
+            color: #60a5fa;
+        }
+
+        h2 {
+            color: #93c5fd;
+        }
+
+        .box {
+            background: #111827;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+
+        .download {
+            display: inline-block;
+            background: #2563eb;
+            color: white;
+            padding: 12px 18px;
+            text-decoration: none;
+            border-radius: 6px;
+        }
+
+        button {
+            background: #2563eb;
+            color: white;
+            border: none;
+            padding: 12px 18px;
+            margin-top: 8px;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        .hint {
+            display: none;
+            background: #374151;
+            border-left: 4px solid #f59e0b;
+            padding: 15px;
+            margin-top: 10px;
+        }
+
+        code {
+            color: #86efac;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>PS-05 — Tracing the Signal</h1>
+
+    <div class="box">
+        <h2>Incident Update</h2>
+
+        <p>
+            A network capture was recorded during the Project Shadow breach.
+            Most of the traffic appears normal, but investigators believe the
+            attacker communicated with an external command-and-control service.
+        </p>
+
+        <p>
+            Analyse the network traffic, identify suspicious communication,
+            and recover the evidence transferred during the breach.
+        </p>
+    </div>
+
+    <div class="box">
+        <h2>Objectives</h2>
+
+        <ul>
+            <li>Analyse the supplied network capture.</li>
+            <li>Identify suspicious or abnormal traffic.</li>
+            <li>Locate the command-and-control communication.</li>
+            <li>Reconstruct the Stage 5 flag from network evidence.</li>
+            <li>Recover transferred artefacts required for the next stage.</li>
+        </ul>
+    </div>
+
+    <div class="box">
+        <h2>Evidence</h2>
+
+        <a class="download"
+           href="shadow_breach_capture.pcap"
+           download>
+            Download shadow_breach_capture.pcap
+        </a>
+
+        <p>Evidence Type: Network packet capture (.pcap)</p>
+    </div>
+
+    <div class="box">
+        <h2>Recommended Tools</h2>
+
+        <ul>
+            <li>Wireshark</li>
+            <li><code>tshark</code></li>
+            <li>NetworkMiner</li>
+            <li><code>binwalk</code></li>
+            <li><code>foremost</code></li>
+        </ul>
+    </div>
+
+    <div class="box">
+        <h2>Progressive Hints</h2>
+
+        <button onclick="revealHint1()">
+            Reveal Hint 1 (-5%)
+        </button>
+
+        <div id="hint1" class="hint">
+            <strong>Hint 1:</strong>
+            <p>
+                Regular traffic doesn't usually beacon at fixed intervals.
+            </p>
+        </div>
+
+        <br>
+
+        <button onclick="revealHint2()">
+            Reveal Hint 2 (-15%)
+        </button>
+
+        <div id="hint2" class="hint">
+            <strong>Hint 2:</strong>
+            <p>
+                Follow the stream — the file didn't just disappear after the transfer.
+            </p>
+        </div>
+    </div>
+
+    <div class="box">
+        <h2>Flag Format</h2>
+
+        <code>SHADOW{lowercase_words_with_underscores}</code>
+
+        <p>
+            Submit the reconstructed flag through the rCTF challenge page.
+        </p>
+    </div>
+
+</div>
+
+<script>
+function revealHint1() {
+    if (confirm("Reveal Hint 1? Planned score penalty: 5%")) {
+        document.getElementById("hint1").style.display = "block";
+    }
+}
+
+function revealHint2() {
+    if (confirm("Reveal Hint 2? Planned score penalty: 15%")) {
+        document.getElementById("hint2").style.display = "block";
+    }
+}
+</script>
+
+</body>
+</html>

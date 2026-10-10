@@ -1,0 +1,8 @@
+Recovered Investigator Note
+---------------------------
+
+The attacker appears to have used an old repeating-key cipher.
+
+The key may be something the research team sees every day.
+
+Think carefully about the codename of the compromised research project.
