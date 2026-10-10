@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>PS-03 - The Attacker's Message</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #111827;
+            color: #e5e7eb;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 850px;
+            margin: 50px auto;
+            background: #1f2937;
+            padding: 35px;
+            border-radius: 10px;
+        }
+
+        h1 {
+            color: #60a5fa;
+        }
+
+        h2 {
+            color: #93c5fd;
+            margin-top: 30px;
+        }
+
+        .box {
+            background: #111827;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 15px 0;
+        }
+
+        a {
+            color: #60a5fa;
+        }
+
+        button {
+            background: #2563eb;
+            color: white;
+            border: none;
+            padding: 12px 18px;
+            margin: 8px 5px 8px 0;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #1d4ed8;
+        }
+
+        .hint {
+            display: none;
+            background: #374151;
+            border-left: 4px solid #f59e0b;
+            padding: 15px;
+            margin-top: 10px;
+            border-radius: 4px;
+        }
+
+        .warning {
+            color: #fbbf24;
+        }
+
+        code {
+            color: #86efac;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>PS-03 — The Attacker's Message</h1>
+
+    <div class="box">
+        <h2>Incident Update</h2>
+
+        <p>
+            During the investigation of the Solace Dynamics research portal,
+            internal notes revealed that the attacker left behind an encoded message.
+        </p>
+
+        <p>
+            The message was intended to hide information from casual observers,
+            but evidence recovered during the investigation may help determine
+            how it was protected.
+        </p>
+    </div>
+
+
+    <div class="box">
+        <h2>Objectives</h2>
+
+        <p>Your task is to:</p>
+
+        <ul>
+            <li>Identify the cipher used to encode the message.</li>
+            <li>Determine the correct key using contextual clues.</li>
+            <li>Decrypt the attacker's message.</li>
+            <li>Recover the Stage 3 flag.</li>
+            <li>Record any information required for the next stage.</li>
+        </ul>
+    </div>
+
+
+    <div class="box">
+        <h2>Evidence</h2>
+
+        <p>
+            <a href="ciphertext.txt" target="_blank">
+                Download / View ciphertext.txt
+            </a>
+        </p>
+
+        <p>
+            <a href="clue.txt" target="_blank">
+                Download / View clue.txt
+            </a>
+        </p>
+    </div>
+
+
+    <div class="box">
+
+        <h2>Progressive Hints</h2>
+
+        <p class="warning">
+            Using hints may reduce the challenge score.
+        </p>
+
+        <button onclick="revealHint1()">
+            Reveal Hint 1 (-5%)
+        </button>
+
+        <div id="hint1" class="hint">
+            <strong>Hint 1:</strong>
+
+            <p>
+                A single-letter shift wouldn't survive scrutiny —
+                but a short repeating key might.
+            </p>
+        </div>
+
+
+        <br>
+
+        <button onclick="revealHint2()">
+            Reveal Hint 2 (-10%)
+        </button>
+
+        <div id="hint2" class="hint">
+            <strong>Hint 2:</strong>
+
+            <p>
+                The project's own codename might be closer to the key
+                than you think.
+            </p>
+        </div>
+
+    </div>
+
+
+    <div class="box">
+
+        <h2>Flag Format</h2>
+
+        <p>
+            <code>SHADOW{lowercase_words_with_underscores}</code>
+        </p>
+
+        <p>
+            Submit the recovered flag through the rCTF challenge page.
+        </p>
+
+    </div>
+
+</div>
+
+
+<script>
+
+function revealHint1() {
+
+    const confirmed = confirm(
+        "Reveal Hint 1? This hint carries a planned 5% score penalty."
+    );
+
+    if (confirmed) {
+        document.getElementById("hint1").style.display = "block";
+    }
+}
+
+
+function revealHint2() {
+
+    const confirmed = confirm(
+        "Reveal Hint 2? This hint carries a planned 10% score penalty."
+    );
+
+    if (confirmed) {
+        document.getElementById("hint2").style.display = "block";
+    }
+}
+
+</script>
+
+</body>
+</html>

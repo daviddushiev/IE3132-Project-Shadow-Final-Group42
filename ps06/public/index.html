@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PS-06 - The Attacker's Tool</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #111827;
+            color: #e5e7eb;
+            margin: 0;
+        }
+
+        .container {
+            max-width: 850px;
+            margin: 50px auto;
+            background: #1f2937;
+            padding: 35px;
+            border-radius: 10px;
+        }
+
+        h1 {
+            color: #60a5fa;
+        }
+
+        h2 {
+            color: #93c5fd;
+        }
+
+        .box {
+            background: #111827;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+
+        .download {
+            display: inline-block;
+            background: #2563eb;
+            color: white;
+            padding: 12px 18px;
+            text-decoration: none;
+            border-radius: 6px;
+            margin-right: 10px;
+        }
+
+        button {
+            background: #2563eb;
+            color: white;
+            border: none;
+            padding: 12px 18px;
+            margin-top: 8px;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        .hint {
+            display: none;
+            background: #374151;
+            border-left: 4px solid #f59e0b;
+            padding: 15px;
+            margin-top: 10px;
+        }
+
+        code {
+            color: #86efac;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>PS-06 — The Attacker's Tool</h1>
+
+    <div class="box">
+        <h2>Incident Update</h2>
+
+        <p>
+            The executable recovered from the network capture appears
+            to be the tool used by the attacker to package and protect
+            the stolen Project Shadow research data.
+        </p>
+
+        <p>
+            Reverse engineer the executable, determine how it protects
+            the data, and recover the missing research.
+        </p>
+    </div>
+
+    <div class="box">
+        <h2>Objectives</h2>
+
+        <ul>
+            <li>Analyse the supplied Linux executable.</li>
+            <li>Identify the embedded secret or key.</li>
+            <li>Understand the transformation logic.</li>
+            <li>Reproduce the logic using a script.</li>
+            <li>Decrypt the stolen research data.</li>
+            <li>Recover the Stage 6 flag.</li>
+        </ul>
+    </div>
+
+    <div class="box">
+        <h2>Challenge Files</h2>
+
+        <a class="download" href="attacker_tool" download>
+            Download attacker_tool
+        </a>
+
+        <a class="download" href="stolen_data.enc" download>
+            Download stolen_data.enc
+        </a>
+    </div>
+
+    <div class="box">
+        <h2>Recommended Tools</h2>
+
+        <ul>
+            <li>Ghidra</li>
+            <li><code>strings</code></li>
+            <li><code>objdump</code></li>
+            <li><code>gdb</code></li>
+            <li>Python</li>
+        </ul>
+    </div>
+
+    <div class="box">
+        <h2>Progressive Hints</h2>
+
+        <button onclick="revealHint1()">
+            Reveal Hint 1 (-5%)
+        </button>
+
+        <div id="hint1" class="hint">
+            <strong>Hint 1:</strong>
+            <p>
+                The key doesn't have to be guessed if it's sitting
+                in the binary itself.
+            </p>
+        </div>
+
+        <br>
+
+        <button onclick="revealHint2()">
+            Reveal Hint 2 (-15%)
+        </button>
+
+        <div id="hint2" class="hint">
+            <strong>Hint 2:</strong>
+            <p>
+                Static analysis will get you further than trying
+                to run it blind.
+            </p>
+        </div>
+    </div>
+
+    <div class="box">
+        <h2>Flag Format</h2>
+
+        <code>SHADOW{lowercase_words_with_underscores}</code>
+
+        <p>
+            Submit the recovered flag through rCTF.
+        </p>
+    </div>
+
+</div>
+
+<script>
+function revealHint1() {
+    if (confirm("Reveal Hint 1? Planned penalty: 5%")) {
+        document.getElementById("hint1").style.display = "block";
+    }
+}
+
+function revealHint2() {
+    if (confirm("Reveal Hint 2? Planned penalty: 15%")) {
+        document.getElementById("hint2").style.display = "block";
+    }
+}
+</script>
+
+</body>
+</html>
