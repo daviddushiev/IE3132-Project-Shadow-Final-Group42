@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PS-04 - Recovering the Evidence</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #111827;
+            color: #e5e7eb;
+            margin: 0;
+        }
+
+        .container {
+            max-width: 850px;
+            margin: 50px auto;
+            background: #1f2937;
+            padding: 35px;
+            border-radius: 10px;
+        }
+
+        h1 {
+            color: #60a5fa;
+        }
+
+        h2 {
+            color: #93c5fd;
+        }
+
+        .box {
+            background: #111827;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+
+        .download {
+            display: inline-block;
+            background: #2563eb;
+            color: white;
+            padding: 12px 18px;
+            text-decoration: none;
+            border-radius: 6px;
+        }
+
+        button {
+            background: #2563eb;
+            color: white;
+            border: none;
+            padding: 12px 18px;
+            margin-top: 8px;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        .hint {
+            display: none;
+            background: #374151;
+            border-left: 4px solid #f59e0b;
+            padding: 15px;
+            margin-top: 10px;
+        }
+
+        code {
+            color: #86efac;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>PS-04 — Recovering the Evidence</h1>
+
+    <div class="box">
+        <h2>Incident Update</h2>
+
+        <p>
+            IT has obtained a forensic image of a Solace Dynamics
+            file server that was accessed during the breach.
+        </p>
+
+        <p>
+            The attacker attempted to remove evidence before leaving
+            the system. Determine what was deleted and recover the
+            remaining evidence.
+        </p>
+    </div>
+
+    <div class="box">
+        <h2>Objectives</h2>
+
+        <ul>
+            <li>Examine the provided forensic disk image.</li>
+            <li>Identify deleted evidence.</li>
+            <li>Recover the deleted archive.</li>
+            <li>Extract and examine its contents.</li>
+            <li>Recover the Stage 4 flag.</li>
+            <li>Identify information required for the next stage.</li>
+        </ul>
+    </div>
+
+    <div class="box">
+        <h2>Evidence</h2>
+
+        <a class="download" href="evidence.dd" download>
+            Download evidence.dd
+        </a>
+
+        <p>Evidence Type: Raw forensic disk image (.dd)</p>
+    </div>
+
+    <div class="box">
+        <h2>Recommended Tools</h2>
+
+        <ul>
+            <li>Autopsy / Sleuth Kit</li>
+            <li><code>fls</code></li>
+            <li><code>icat</code></li>
+            <li><code>tsk_recover</code></li>
+            <li><code>strings</code></li>
+            <li>Hex editor</li>
+        </ul>
+    </div>
+
+    <div class="box">
+        <h2>Progressive Hints</h2>
+
+        <button onclick="revealHint1()">
+            Reveal Hint 1 (-5%)
+        </button>
+
+        <div id="hint1" class="hint">
+            <strong>Hint 1:</strong>
+            <p>
+                Deletion doesn't erase — it just forgets the pointer.
+            </p>
+        </div>
+
+        <br>
+
+        <button onclick="revealHint2()">
+            Reveal Hint 2 (-10%)
+        </button>
+
+        <div id="hint2" class="hint">
+            <strong>Hint 2:</strong>
+            <p>
+                Check the access logs for anything that isn't a normal
+                file operation.
+            </p>
+        </div>
+    </div>
+
+    <div class="box">
+        <h2>Flag Format</h2>
+
+        <code>SHADOW{lowercase_words_with_underscores}</code>
+
+        <p>
+            Submit the recovered flag through the rCTF challenge page.
+        </p>
+    </div>
+
+</div>
+
+<script>
+function revealHint1() {
+    if (confirm("Reveal Hint 1? This hint carries a planned 5% score penalty.")) {
+        document.getElementById("hint1").style.display = "block";
+    }
+}
+
+function revealHint2() {
+    if (confirm("Reveal Hint 2? This hint carries a planned 10% score penalty.")) {
+        document.getElementById("hint2").style.display = "block";
+    }
+}
+</script>
+
+</body>
+</html>

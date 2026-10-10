@@ -1,0 +1,28 @@
+services:
+
+  ps02-portal:
+    build:
+      context: .
+      dockerfile: Dockerfile
+
+    container_name: ps02-portal
+
+    environment:
+      STAGE2_FLAG: "SHADOW{sql_injection_opens_the_portal}"
+      SESSION_SECRET: "project-shadow-ps02-local-session"
+
+    ports:
+      - "127.0.0.1:8081:3000"
+
+    restart: unless-stopped
+
+    security_opt:
+      - no-new-privileges:true
+
+    networks:
+      - ps02-network
+
+networks:
+
+  ps02-network:
+    driver: bridge
