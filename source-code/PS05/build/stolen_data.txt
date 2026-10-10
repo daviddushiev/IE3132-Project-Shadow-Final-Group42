@@ -1,0 +1,7 @@
+PROJECT SHADOW - RECOVERED RESEARCH DATA
+
+Classification: Confidential
+
+The attacker packaged this research using a weak XOR-based routine.
+
+STAGE6_FLAG=SHADOW{hardcoded_keys_are_not_secrets}
