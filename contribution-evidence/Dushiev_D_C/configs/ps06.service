@@ -1,0 +1,14 @@
+[Unit]
+Description=Project Shadow PS-06 Website
+After=network.target
+
+[Service]
+Type=simple
+User=student
+WorkingDirectory=/home/student/project-shadow/ps06
+ExecStart=/usr/bin/python3 -m http.server 8606 --directory public
+Restart=always
+RestartSec=3
+
+[Install]
+WantedBy=multi-user.target
