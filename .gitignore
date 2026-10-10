@@ -1,0 +1,24 @@
+# Large challenge artefacts - keep in final submission package
+*.dd
+*.pcap
+
+# Backups
+*.tar.gz
+*.zip
+
+# Runtime/temp files
+*.log
+*.pid
+__pycache__/
+*.pyc
+
+# Environment/secrets
+.env
+.env.*
+
+# Ghidra local project/cache
+*.gpr
+*.rep/
+*.lock
+
+.git-old-backup/
